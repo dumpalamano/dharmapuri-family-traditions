@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dharmapuri Tamil Family Traditions</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-red: #8b1a1a;
+    --vermillion: #c0392b;
+    --lamp: #d4730a;
+    --gold: #c9943a;
+    --kolam: #2a6b4f;
+    --murugan: #6b2fa0;
+    --cream: #fef9f0;
+    --warm: #f5e8cc;
+    --parchment: #fffcf4;
+    --ink: #1a0e05;
+    --muted: #7a5f3a;
+    --card: #fffdf6;
+    --border: #e8d0a0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 10% 20%, rgba(201,148,58,0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba(139,26,26,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Gopuram-inspired top bar */
+  .gopuram-bar {
+    background: linear-gradient(90deg, var(--deep-red) 0%, var(--vermillion) 30%, var(--lamp) 50%, var(--vermillion) 70%, var(--deep-red) 100%);
+    padding: 0;
+    height: 10px;
+    position: relative;
+  }
+
+  .gopuram-bar::after {
+    content: '🪔  OM NAMAH SHIVAYA  🪔  MURUGAN  🪔  OM NAMAH SHIVAYA  🪔';
+    position: absolute;
+    bottom: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--lamp);
+    white-space: nowrap;
+    font-weight: 600;
+    opacity: 0.65;
+  }
+
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 52px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .region-tag {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--vermillion);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .tamil-line {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--gold);
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(2.2rem, 5.5vw, 3.7rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  h1 em { font-style: italic; color: var(--vermillion); }
+
+  .header-desc {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+
+  .lamps-row {
+    font-size: 22px;
+    letter-spacing: 0.4em;
+    margin: 14px 0 8px;
+  }
+
+  @keyframes flicker {
+    0%,100%{opacity:1;transform:scale(1) rotate(-1deg)}
+    50%{opacity:.88;transform:scale(1.06) rotate(1deg)}
+  }
+  .flicker { display:inline-block; animation:flicker 2.2s ease-in-out infinite; }
+  .flicker:nth-child(2){animation-delay:.4s}
+  .flicker:nth-child(3){animation-delay:.8s}
+  .flicker:nth-child(4){animation-delay:1.1s}
+  .flicker:nth-child(5){animation-delay:.2s}
+
+  /* Filters */
+  .filters {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    justify-content: center; margin-bottom: 36px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .filter-btn {
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: var(--lamp); color: var(--lamp); }
+  .filter-btn.active { background: var(--vermillion); border-color: var(--vermillion); color: white; }
+
+  /* Progress */
+  .progress-wrap {
+    background: linear-gradient(135deg, var(--warm), #fde8b8);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 26px;
+    margin-bottom: 36px;
+    display: flex; align-items: center; gap: 20px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .progress-icon { font-size: 26px; }
+  .progress-text { flex: 1; }
+  .progress-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+  .progress-bar { height: 7px; background: rgba(0,0,0,0.07); border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--deep-red), var(--lamp), var(--gold)); border-radius: 99px; transition: width 0.5s ease; }
+  .progress-count { font-family: 'Libre Baskerville', serif; font-size: 24px; color: var(--vermillion); font-weight: 700; white-space: nowrap; }
+
+  /* Section labels */
+  .section-label {
+    font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--lamp);
+    font-weight: 700; margin: 44px 0 18px;
+    display: flex; align-items: center; gap: 14px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .section-label .s-icon { font-size: 18px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
+
+  /* Cards */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    padding: 22px 22px 18px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--deep-red), var(--lamp), var(--gold));
+    opacity: 0; transition: opacity 0.2s;
+  }
+
+  /* Kolam dot decoration */
+  .card::after {
+    content: '· · ·';
+    position: absolute; bottom: 10px; right: 14px;
+    font-size: 14px; color: var(--border);
+    letter-spacing: 4px; transition: color 0.2s;
+  }
+
+  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(100,30,0,0.1); border-color: rgba(192,57,43,0.25); }
+  .card:hover::before { opacity: 1; }
+  .card:hover::after { color: var(--gold); }
+  .card.done { border-color: var(--kolam); background: #f6fffb; }
+  .card.done::before { background: var(--kolam); opacity: 1; }
+  .card.done::after { content: '✓'; color: var(--kolam); font-size: 16px; letter-spacing: 0; }
+
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .card-icon { font-size: 30px; line-height: 1; }
+  .check-circle {
+    width: 24px; height: 24px; border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: all 0.2s; font-size: 12px; color: white;
+  }
+  .card.done .check-circle { background: var(--kolam); border-color: var(--kolam); }
+
+  .card-freq { display: inline-block; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; color: var(--lamp); margin-bottom: 5px; }
+  .card-title { font-family: 'Libre Baskerville', serif; font-size: 17px; line-height: 1.25; color: var(--ink); margin-bottom: 5px; font-weight: 700; }
+  .card-tamil { font-size: 11px; color: var(--gold); font-style: italic; margin-bottom: 8px; font-weight: 500; }
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; font-weight: 400; }
+  .card-tag { display: inline-block; margin-top: 14px; font-size: 11px; padding: 3px 10px; border-radius: 100px; background: var(--warm); color: var(--muted); font-weight: 600; }
+
+  /* Festival section */
+  .festival-section {
+    background: linear-gradient(145deg, #1a0505, #3d0e0e, #1a0a00);
+    border-radius: 18px; padding: 34px 28px;
+    margin-top: 50px; color: white;
+    position: relative; overflow: hidden;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .festival-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(201,148,58,0.18), transparent 55%),
+                radial-gradient(ellipse at 20% 80%, rgba(107,47,160,0.12), transparent 50%);
+    pointer-events: none;
+  }
+
+  .festival-header { text-align: center; margin-bottom: 28px; position: relative; }
+  .festival-header h2 { font-family: 'Libre Baskerville', serif; font-size: 1.7rem; font-style: italic; color: var(--gold); margin-bottom: 6px; }
+  .festival-header p { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.25em; text-transform: uppercase; }
+
+  .festival-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; position: relative; }
+
+  .festival-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,148,58,0.22);
+    border-radius: 12px; padding: 18px;
+    transition: background 0.2s;
+  }
+  .festival-card:hover { background: rgba(255,255,255,0.11); }
+
+  .fest-icon { font-size: 26px; margin-bottom: 8px; }
+  .fest-name { font-family: 'Libre Baskerville', serif; font-size: 16px; color: var(--gold); font-weight: 700; margin-bottom: 3px; }
+  .fest-tamil { font-size: 11px; color: rgba(201,148,58,0.55); font-style: italic; margin-bottom: 8px; }
+  .fest-desc { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.65; }
+  .fest-special { display: inline-block; margin-top: 10px; font-size: 10px; padding: 2px 9px; border-radius: 100px; background: rgba(201,148,58,0.18); color: var(--gold); font-weight: 600; letter-spacing: 0.1em; }
+
+  /* Confetti */
+  @keyframes confettiDrop { 0%{transform:translateY(-10px) rotate(0deg);opacity:1} 100%{transform:translateY(100vh) rotate(720deg);opacity:0} }
+  .confetti-piece { position:fixed; width:8px; height:8px; border-radius:2px; animation:confettiDrop 2s ease forwards; pointer-events:none; z-index:999; }
+
+  /* Celebrate */
+  .celebrate-banner {
+    display: none; text-align: center; padding: 26px;
+    background: linear-gradient(135deg, var(--deep-red), var(--lamp));
+    color: white; border-radius: 14px; margin-top: 32px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.25rem; font-style: italic;
+    animation: fadeUp 0.5s ease;
+  }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body>
+
+<div class="gopuram-bar"></div>
+
+<div class="container">
+
+  <header>
+    <p class="region-tag">தர்மபுரி · Dharmapuri District · Tamil Nadu</p>
+    <p class="tamil-line">Kongu Nadu Region · Multi-Generational Hindu Family</p>
+    <div class="lamps-row">
+      <span class="flicker">🪔</span>
+      <span class="flicker">🌸</span>
+      <span class="flicker">🪔</span>
+      <span class="flicker">🌸</span>
+      <span class="flicker">🪔</span>
+    </div>
+    <h1>நம் குடும்ப <em>மரபுகள்</em><br>Our Family Traditions</h1>
+    <p class="header-desc">The living customs of a Dharmapuri Tamil Hindu household — from the pre-dawn kolam to the Karthigai lamp rows, passed through every generation with devotion.</p>
+  </header>
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="filter('all',event)">அனைத்தும் · All</button>
+    <button class="filter-btn" onclick="filter('daily',event)">Daily · தினசரி</button>
+    <button class="filter-btn" onclick="filter('weekly',event)">Weekly · வாரம்</button>
+    <button class="filter-btn" onclick="filter('pooja',event)">Pooja · பூஜை</button>
+    <button class="filter-btn" onclick="filter('kitchen',event)">Kitchen · சமையல்</button>
+    <button class="filter-btn" onclick="filter('murugan',event)">Murugan · முருகன்</button>
+    <button class="filter-btn" onclick="filter('elders',event)">Elders · பெரியோர்</button>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-icon">🏮</div>
+    <div class="progress-text">
+      <div class="progress-label">Traditions Adopted · பின்பற்றும் மரபுகள்</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+    <span class="progress-count" id="progressCount">0 / 20</span>
+  </div>
+
+  <div id="traditionsContainer"></div>
+
+  <div class="celebrate-banner" id="celebrateBanner">
+    🪔 வாழ்க வளமுடன் — Your home shines with the light of tradition. May your family's lamp never be extinguished! 🪔
+  </div>
+</div>
+
+<script>
+const traditions = [
+
+  // ─── DAILY ─────────────────────────────────────────────────────────────────
+  {
+    id:1, freq:'daily', icon:'🌅', filters:['all','daily','pooja'],
+    title:'Kolam at Sunrise', tamil:'காலை கோலம்',
+    tag:'Women\'s Ritual',
+    desc:'Before sunrise, the woman of the house draws a fresh kolam at the main entrance using white rice flour. On Fridays and festival days, coloured powder (kambi kolam) is added. Grandchildren learn the dot patterns from grandmothers — the simplest act of welcoming the divine.'
+  },
+  {
+    id:2, freq:'daily', icon:'🪔', filters:['all','daily','pooja'],
+    title:'Vilaakku Vaippu — Morning Lamp', tamil:'விளக்கு வைப்பு',
+    tag:'Sacred Morning',
+    desc:'A brass kuthu vilakku (standing lamp) is lit in the pooja room at dawn with gingelly (sesame) oil or ghee, accompanied by the ringing of a bell. The family gathers briefly before their day begins. No meal is eaten before this.'
+  },
+  {
+    id:3, freq:'daily', icon:'🌿', filters:['all','daily','pooja'],
+    title:'Tulasi Thanni — Holy Basil Watering', tamil:'துளசி தண்ணீர்',
+    tag:'Morning Ritual',
+    desc:'The Tulasi plant in the courtyard is watered each morning by the women of the house. On Fridays, turmeric and kumkum are applied and a jasmine garland is offered. Married women circumambulate it three times reciting Vishnu slokas.'
+  },
+  {
+    id:4, freq:'daily', icon:'🙏', filters:['all','daily','elders'],
+    title:'Paadha Vandanam — Touch of Feet', tamil:'பாத வணக்கம்',
+    tag:'All Children',
+    desc:'Every morning children touch the feet of grandparents and parents before leaving home. Elders bless by placing their right hand on the child\'s head saying "Ayushman bhava" or "Nalla irru." In a Dharmapuri home, no child leaves without this exchange.'
+  },
+  {
+    id:5, freq:'daily', icon:'🍚', filters:['all','daily','kitchen','pooja'],
+    title:'Neivedyam — Offering Before Eating', tamil:'நேய்வேத்யம்',
+    tag:'Kitchen Tradition',
+    desc:'The first portion of each cooked meal is placed on a small banana leaf before the deity in the pooja room. Only after this offering does the family sit to eat. Grandmothers teach children to fold the banana leaf correctly and place it with both hands.'
+  },
+  {
+    id:6, freq:'daily', icon:'🌙', filters:['all','daily','pooja'],
+    title:'Sandhya Deepam — Evening Lamp', tamil:'சந்தியா தீபம்',
+    tag:'Evening Ritual',
+    desc:'At dusk, the family lights oil lamps at the pooja room, the front door threshold, and the tulasi kota. Women and children sing "Deepam Jyothi" or the Kanda Sashti Kavacham. In Dharmapuri homes, the fragrance of agarbathi (incense) at this hour is unmistakable.'
+  },
+  {
+    id:7, freq:'daily', icon:'📿', filters:['all','daily','pooja','murugan'],
+    title:'Thiruvasagam & Slokas at Dusk', tamil:'திருவாசகம்',
+    tag:'Oral Tradition',
+    desc:'Children sit with grandparents every evening to recite slokas — Kanda Sashti Kavacham (for Murugan), Vishnu Sahasranamam stanzas, or Thiruvasagam verses. In Dharmapuri, devotion to Lord Murugan runs especially deep; most families know at least the full Kavacham by heart.'
+  },
+
+  // ─── WEEKLY ─────────────────────────────────────────────────────────────────
+  {
+    id:8, freq:'weekly', icon:'🐚', filters:['all','weekly','pooja','murugan'],
+    title:'Friday Murugan Abhishekam', tamil:'வெள்ளி முருகன் அபிஷேகம்',
+    tag:'Murugan Devotion',
+    desc:'Friday is Lord Murugan\'s day. The family visits the local Murugan temple (Dharmapuri district has many Murugan shrines) for abhishekam. At home, a small vel (Murugan\'s spear) is decorated and worshipped. Children fast until noon. Grandparents narrate Murugan\'s Kavadi origin story.'
+  },
+  {
+    id:9, freq:'weekly', icon:'🌼', filters:['all','weekly','pooja'],
+    title:'Varalakshmi Pooja Prep', tamil:'வாரம் தோறும் லக்ஷ்மி பூஜை',
+    tag:'Women\'s Weekly',
+    desc:'Every Friday evening, women of the household perform a small Lakshmi pooja — a kalasha decorated with mango leaves, turmeric garland, and lotus flowers. Daughters learn to prepare the puja thali. The tradition of asking Lakshmi into the home is never skipped.'
+  },
+  {
+    id:10, freq:'weekly', icon:'🌿', filters:['all','weekly','pooja'],
+    title:'Somavaram — Monday Shiva Pooja', tamil:'சோமவாரம் சிவ பூஜை',
+    tag:'Shiva Devotion',
+    desc:'Monday is Shiva\'s day. The elder men of the house perform abhishekam to the Shiva lingam at home or visit Theerthagirishwara Temple — one of Dharmapuri\'s oldest Shiva temples. Bael (vilvam) leaves are collected by grandchildren and offered at the shrine.'
+  },
+  {
+    id:11, freq:'weekly', icon:'🍛', filters:['all','weekly','kitchen'],
+    title:'Sunday Samaiyal — Family Kitchen', tamil:'ஞாயிறு சமையல்',
+    tag:'Kitchen Tradition',
+    desc:'Sunday is for elaborate cooking together. Grandmother guides the making of Dharmapuri-style sambar (with small drumstick and brinjal), kootu, and rasam from scratch. The ammikallu (stone grinder) is used for chutneys. Grandchildren grind; daughters-in-law learn the ratios by memory, not recipe.'
+  },
+  {
+    id:12, freq:'weekly', icon:'👴', filters:['all','weekly','elders'],
+    title:'Paatti\'s Kathai Neram — Story Hour', tamil:'பாட்டியின் கதை நேரம்',
+    tag:'Oral Tradition',
+    desc:'After Sunday lunch, the grandmother gathers grandchildren for Kamba Ramayanam or Panchatantra tales told entirely from memory. Dharmapuri elders are known storytellers — often mixing folk legends of local heroes like Adhiyaman with Puranic stories.'
+  },
+  {
+    id:13, freq:'weekly', icon:'📖', filters:['all','weekly','elders'],
+    title:'Panchangam Reading', tamil:'பஞ்சாங்கம் பார்க்கல்',
+    tag:'Elder\'s Wisdom',
+    desc:'Every Sunday morning, the grandfather reads the week\'s Tamil Panchangam — noting auspicious nakshatrams, Rahu Kalam, and any vrats to observe. Children listen and learn the concept of muhurtham. Dharmapuri families plan any new activity, travel, or purchases around this.'
+  },
+  {
+    id:14, freq:'weekly', icon:'🛕', filters:['all','weekly','pooja','murugan'],
+    title:'Temple Oorvalam — Weekly Visit', tamil:'கோவில் தரிசனம்',
+    tag:'Family Outing',
+    desc:'The whole family walks to the kula deivam (clan deity) temple each week — typically on Friday or Tuesday. Each member carries fresh flowers, coconut, or a camphor block. Grandparents explain the history of the presiding deity; children receive vibuthi and kumkum on their foreheads.'
+  },
+  {
+    id:15, freq:'weekly', icon:'🎶', filters:['all','weekly','elders','murugan'],
+    title:'Bhajans & Tevaram Singing', tamil:'பஜனை & தேவாரம்',
+    tag:'Music Tradition',
+    desc:'One evening a week, the family gathers to sing Tamil devotional music — Tevaram verses, Thiruvasagam stanzas, or Annamacharya kirtanas. The nadaswaram-and-thavil tradition of Dharmapuri region gives the family a strong musical heritage. Elders start; children hum along and eventually lead.'
+  },
+
+  // ─── MONTHLY ─────────────────────────────────────────────────────────────────
+  {
+    id:16, freq:'monthly', icon:'🌕', filters:['all','weekly','pooja'],
+    title:'Karthigai Deepam at Home', tamil:'கார்த்திகை தீபம்',
+    tag:'Festival of Light',
+    desc:'On the Karthigai full moon, every room, doorstep, and courtyard is lined with rows of clay agal lamps lit with gingelly oil. Dharmapuri families light a special Lakshmi Vilakku (lamp shaped as a seated woman) on the front step. Grandparents tell the story of Lord Shiva as the pillar of fire.'
+  },
+  {
+    id:17, freq:'monthly', icon:'🌊', filters:['all','weekly','pooja'],
+    title:'Aadi Perukku — River Offering', tamil:'ஆடி பெருக்கு',
+    tag:'Nature Ritual',
+    desc:'On the 18th day of the Tamil month Aadi (July–Aug), the family goes to the Kaveri or Krishnagiri reservoir near Dharmapuri. A puja tray with rice, banana, and turmeric is floated on the water. Grandmothers teach the water-offering prayer. Children light small oil lamps and set them on leaf boats.'
+  },
+  {
+    id:18, freq:'monthly', icon:'🌑', filters:['all','weekly','pooja'],
+    title:'Amavasai Pitru Tharpanam', tamil:'அமாவாசை தர்ப்பணம்',
+    tag:'Ancestral Ritual',
+    desc:'On the new moon (Amavasai), the eldest male performs tharpanam — offering sesame seeds and water while reciting the names of departed ancestors. Dharmapuri families gather the entire generation to witness. The names spoken aloud keep the memory of those gone alive in the family\'s consciousness.'
+  },
+  {
+    id:19, freq:'daily', icon:'🌺', filters:['all','daily','pooja'],
+    title:'Maalai Piritual — Morning Flowers', tamil:'மாலை பிரிடுதல்',
+    tag:'Morning Ritual',
+    desc:'Women of the house string fresh jasmine (malli), rose, or chrysanthemum garlands each morning from flowers grown in the courtyard or bought from the local market. One garland goes to the deity; one is worn in the hair. Grandmothers teach children the correct stringing pattern and which flower goes to which deity.'
+  },
+  {
+    id:20, freq:'weekly', icon:'🥥', filters:['all','weekly','pooja'],
+    title:'Navaratri Golu Display', tamil:'நவராத்திரி கொலு',
+    tag:'Nine Nights',
+    desc:'During Navaratri, a stepped platform (odd number of steps, traditionally 7 or 9) is set up and decorated with dolls (bommai) representing gods, scenes from Ramayana, and daily village life. Dharmapuri families have heirloom golu sets passed down four generations. Neighbours are invited; women exchange betel and kumkum.'
+  },
+];
+
+const festivals = [
+  {
+    icon:'☀️', name:'Pongal', tamil:'பொங்கல்',
+    special:'Most Sacred Tamil Festival',
+    desc:'Four sacred days: Bhogi (burn the old — kaappu kattu of neem leaves tied to rooftops, unique to Kongu Nadu), Thai Pongal (cook Chakarai Pongal in a clay pot outdoors and let it overflow, chanting "Pongalo Pongal!"), Mattu Pongal (decorate cattle), Kaanum Pongal (family visits). In Dharmapuri, sugarcane from the harvest is placed at the puja room.'
+  },
+  {
+    icon:'🌸', name:'Tamil Puthandu', tamil:'தமிழ் புத்தாண்டு',
+    special:'Tamil New Year',
+    desc:'The Tamil New Year (April) begins with the Kanni — seeing auspicious items first thing in the morning (gold, mirror, flowers, fruit, scripture). The Panchangam for the new year is read aloud by elders. New clothes are worn. A feast of mango pachadi (with six tastes) is made — sweet, sour, bitter, spicy, salty, astringent.'
+  },
+  {
+    icon:'🦚', name:'Skanda Sashti', tamil:'சகண்ட சஷ்டி',
+    special:'Murugan\'s Victory',
+    desc:'Six-day fast and festival for Lord Murugan — the primary deity of Dharmapuri region. Families fast or eat only one meal; grandchildren recite the full Kanda Sashti Kavacham daily. On the sixth day, Soorasamharam (Murugan\'s victory over the demon Soorapadman) is enacted at the temple with great procession.'
+  },
+  {
+    icon:'🎎', name:'Navaratri & Golu', tamil:'நவராத்திரி கொலு',
+    special:'Nine Sacred Nights',
+    desc:'Nine nights of the goddess. Golu platform set up with multi-generational heirloom dolls. Each evening neighbours are invited; women exchange sundal (nine types across nine nights), betel leaves, and kumkum. Saraswati Pooja on the 9th day — books, musical instruments, tools placed for worship. Vijayadasami: begin new learning.'
+  },
+  {
+    icon:'🪔', name:'Deepavali', tamil:'தீபாவளி',
+    special:'Festival of Lights',
+    desc:'Pre-dawn Abhyanga Snanam (oil bath) — grandmothers wake everyone before 4am, apply gingelly oil. New clothes, cracker-lighting at dawn, home-made murukku and adhirasam sweets. Every doorstep lined with earthen lamps. In Dharmapuri, the tradition of making Deepavali legiyam (herbal tonic) for digestion is maintained by elder women.'
+  },
+  {
+    icon:'🔥', name:'Karthigai Deepam', tamil:'கார்த்திகை தீபம்',
+    special:'Tamil Nadu\'s Own Festival of Light',
+    desc:'The oldest festival in Tamil literature — celebrated uniquely in Tamil Nadu. Rows of agal lamps fill every surface of the house at dusk. Families face Thiruvannamalai (visible across the plains from Dharmapuri on clear nights) and light a bonfire or beacon lamp on the rooftop. Grandparents tell the story of Shiva as the infinite pillar of flame.'
+  },
+];
+
+let activeFilter = 'all';
+let checked = new Set(JSON.parse(localStorage.getItem('dharmapuri_traditions') || '[]'));
+
+function save() { localStorage.setItem('dharmapuri_traditions', JSON.stringify([...checked])); }
+
+function updateProgress() {
+  const total = traditions.length;
+  const done = checked.size;
+  document.getElementById('progressFill').style.width = (done/total*100) + '%';
+  document.getElementById('progressCount').textContent = `${done} / ${total}`;
+  if (done === total) document.getElementById('celebrateBanner').style.display = 'block';
+}
+
+function confetti(x, y) {
+  const colors = ['#c0392b','#d4730a','#c9943a','#2a6b4f','#6b2fa0','#f0c040'];
+  for (let i = 0; i < 16; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    const shapes = ['50%','0','30%'];
+    el.style.cssText = `left:${x+(Math.random()-.5)*110}px;top:${y}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${shapes[Math.floor(Math.random()*3)]};animation-delay:${Math.random()*.3}s;animation-duration:${1.4+Math.random()}s`;
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(), 2500);
+  }
+}
+
+function toggleCard(id, e) {
+  e.stopPropagation();
+  if (checked.has(id)) checked.delete(id);
+  else { checked.add(id); confetti(e.clientX, e.clientY); }
+  save(); render();
+}
+
+function filter(f, e) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (e && e.target) e.target.classList.add('active');
+  render();
+}
+
+function renderFestivals() {
+  return `
+    <div class="festival-section">
+      <div class="festival-header">
+        <h2>பண்டிகைகள் — The Great Festivals</h2>
+        <p>Six Sacred Celebrations of a Dharmapuri Tamil Family</p>
+      </div>
+      <div class="festival-grid">
+        ${festivals.map(f=>`
+          <div class="festival-card">
+            <div class="fest-icon">${f.icon}</div>
+            <div class="fest-name">${f.name}</div>
+            <div class="fest-tamil">${f.tamil}</div>
+            <div class="fest-desc">${f.desc}</div>
+            <span class="fest-special">${f.special}</span>
+          </div>`).join('')}
+      </div>
+    </div>`;
+}
+
+function cardHTML(t, done, i) {
+  return `
+    <div class="card ${done?'done':''}" onclick="toggleCard(${t.id},event)" style="animation-delay:${i*.06}s">
+      <div class="card-header">
+        <span class="card-icon">${t.icon}</span>
+        <div class="check-circle">${done?'✓':''}</div>
+      </div>
+      <span class="card-freq">${t.freq}</span>
+      <div class="card-title">${t.title}</div>
+      <div class="card-tamil">${t.tamil}</div>
+      <div class="card-desc">${t.desc}</div>
+      <span class="card-tag">${t.tag}</span>
+    </div>`;
+}
+
+function render() {
+  const container = document.getElementById('traditionsContainer');
+  const visible = traditions.filter(t => t.filters.includes(activeFilter));
+
+  const daily   = visible.filter(t => t.freq === 'daily');
+  const weekly  = visible.filter(t => t.freq === 'weekly');
+  const monthly = visible.filter(t => t.freq === 'monthly');
+
+  let html = '';
+
+  if (daily.length) {
+    html += `<div class="section-label"><span class="s-icon">🌅</span> Daily Rituals · தினசரி ஆசாரங்கள்</div><div class="grid">`;
+    daily.forEach((t,i) => { html += cardHTML(t, checked.has(t.id), i); });
+    html += '</div>';
+  }
+  if (weekly.length) {
+    html += `<div class="section-label"><span class="s-icon">🛕</span> Weekly Traditions · வார மரபுகள்</div><div class="grid">`;
+    weekly.forEach((t,i) => { html += cardHTML(t, checked.has(t.id), i); });
+    html += '</div>';
+  }
+  if (monthly.length) {
+    html += `<div class="section-label"><span class="s-icon">🌕</span> Monthly Rituals · மாத ஆசாரங்கள்</div><div class="grid">`;
+    monthly.forEach((t,i) => { html += cardHTML(t, checked.has(t.id), i); });
+    html += '</div>';
+  }
+
+  if (activeFilter === 'all' || activeFilter === 'pooja') {
+    html += renderFestivals();
+  }
+
+  container.innerHTML = html;
+  updateProgress();
+}
+
+render();
+</script>
+</body>
+</html>
